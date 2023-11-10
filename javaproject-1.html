@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Switcher</title>
+    <link rel="stylesheet" href="javaproject-1.css">
+    <style>
+        
+      
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Color Schee Switcher</h1>
+      <button class="btn" id="red"></button>
+      <button class="btn" id="skyblue"></button>
+      <button class="btn" id="green"></button>
+      <button class="btn" id="yellow"></button>
+      <button class="btn" id="purple"></button>
+       <h2>Try Clicking On one of the colors above 
+        <span>to change the background color of this page!</span>
+       </h2>
+    </div>
+
+    <script>
+ const button = document.querySelectorAll('.btn')
+  const body = document.querySelector('body')
+
+  button.forEach((btn)=>{
+  console.log(btn)
+  btn.addEventListener('click', function(e){
+    console.log(e)
+    console.log(e.target)
+
+
+    if(e.target.id === 'red'){
+        document.body.style.backgroundColor = e.target.id;
+    }
+    if(e.target.id === 'skyblue'){
+        document.body.style.backgroundColor = e.target.id;
+    }
+    if(e.target.id === 'green'){
+        document.body.style.backgroundColor = e.target.id;
+    }
+    if(e.target.id === 'yellow'){
+        document.body.style.backgroundColor = e.target.id;
+    }
+    if(e.target.id === 'purple'){
+        document.body.style.backgroundColor = e.target.id;
+    }
+  })
+  })
+ 
+    </script>
+</body>
+</html>
