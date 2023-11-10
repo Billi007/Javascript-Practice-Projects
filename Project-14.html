@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calender</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(45deg, rgb(54, 5, 11), rgb(10, 20, 98));
+            height: 100vh;
+            width: 100%;
+        }
+
+        .calender {
+            position: absolute;
+            top: 30%;
+            left: 35%;
+            background: #fff;
+            width: 420px;
+            height: 280px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+
+        }
+
+        .left,
+        .right {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 65%;
+            height: 100%;
+
+        }
+
+        .right {
+            background: orangered;
+            width: 42%;
+            color: white;
+            font-size: 30px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+
+        }
+
+        .left {
+            width: 58%;
+            font-size: 30px;
+            color: black;
+
+        }
+
+        .left #date {
+            font-size: 8rem;
+        }
+    </style>
+</head>
+
+<div class="calender">
+    <div class="left">
+        <span id="date">9</span>
+        <p id="day">Friday</p>
+    </div>
+    <div class="right">
+        <p id="month">November</p>
+        <p id="year">2023</p>
+    </div>
+
+
+</div>
+
+
+
+
+<body>
+    <script>
+        //Javascript
+
+        const date = document.getElementById('date');
+        const day = document.getElementById('day');
+        const month = document.getElementById('month');
+        const year = document.getElementById('year');
+
+        const Today = new Date()
+        console.log(Today);
+
+        const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October',
+            'November', 'Dcember'];
+
+        date.innerHTML = (Today.getDate()>10?'0':"") +Today.getDate();
+        day.innerHTML = weekDays[Today.getDay()];
+        month.innerHTML = months[Today.getMonth()];
+        year.innerHTML = Today.getFullYear();
+    </script>
+</body>
+
+</html>
