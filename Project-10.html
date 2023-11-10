@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #002339;
+            color: #fff;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .container {
+            margin: 12%;
+            width: 90%;
+            max-width: 700px;
+        }
+
+        .title h1 {
+            font-weight: 400;
+        }
+
+        span {
+            color: #019f55;
+            font-weight: 400;
+            border-bottom: 2px solid #019f55;
+        }
+
+        .display {
+            width: 75%;
+            background-color: white;
+            padding: 17px 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 2px;
+        }
+
+        .display input {
+            border: none;
+            outline: 0;
+            font-size: 15px;
+        }
+
+        .display img {
+            width: 22px;
+            height: 22px;
+            cursor: pointer;
+        }
+
+        .generate img {
+            width: 25px;
+            height: 42px;
+        }
+
+        .generate {
+            width: 40%;
+            height: 50px;
+            background-color: green;
+            border-radius: 2px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+
+        }
+
+        .generate button {
+            border: none;
+            outline: none;
+            background-color: green;
+            font-size: 18px;
+            color: white;
+            font-weight: lighter;
+            cursor: pointer;
+        }
+    </style>
+
+    <div class="container">
+        <div class="title">
+            <h1>Generate a <br> <span>Random Password</span></h1>
+        </div>
+        <div class="display">
+            <input type="text" name="" id="Password" placeholder="Password">
+            <img onclick="copyPass()" class="copy" src="copy icon.png" alt="">
+        </div>
+
+        <div class="generate">
+            <img src="flash.PNG" alt="">
+            <button onclick="createPass()">Generate Password</button>
+        </div>
+
+
+    </div>
+</head>
+
+<body>
+
+
+    <!-- Javascript -->
+    <script>
+        const Passwordbox = document.querySelector('#Password');
+        const length = 12;
+
+        const upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const lowerCase = 'abcdefghijklmnopqrstuvwxyz';
+        const number = '0123456789';
+        const symbols = '!@#$%^&*()_+=_-+*/?><.{}[]';
+        const allChars = upperCase + lowerCase + symbols + number;
+
+        function createPass() {
+            let password = '';
+            password += upperCase[Math.floor(Math.random() * upperCase.length)];
+            password += lowerCase[Math.floor(Math.random() * lowerCase.length)];
+            password += number[Math.floor(Math.random() * number.length)];
+            password += symbols[Math.floor(Math.random() * symbols.length)];
+            
+            while(length > password.length){
+                password += allChars[Math.floor(Math.random() * allChars.length)];
+
+            }
+            Passwordbox.value = password
+            }
+
+            function copyPass(){
+                Passwordbox.select();
+                document.execCommand('copy')
+            }
+
+    </script>
+</body>
+
+</html>
