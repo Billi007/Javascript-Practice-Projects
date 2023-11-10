@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .center {
+            margin: 20rem auto;
+            width: 700px;
+            height: 300px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<div class="center"></div>
+
+<body>
+
+
+
+    <script>
+        //Problem-1
+        //Make a rectangle and when we move mouse on that rectangle, on left side we want to gradually change the
+        //color of that reactangle and when we move mouse to right side we want to change the color to blue.
+        //When we move mouse to left side make the rectangle slow down the more mouse reaches to left and do the same when mouse goes the right side.
+
+
+        //solution
+        //Sabse phle aaya pta karo ki mouse rectangle epar aaya or move hua!
+        //calculate hum cnetre se left par hai ya center se right par hai!
+        //ab ye calculate karo ki hum center se kitna left par hai, jitna left par hai utni intensity se color lgao.
+        //color - rgb(255, 255, 255)
+        //0 - 255
+
+     const rect =  document.querySelector('.center').addEventListener('mousemove', function(){
+        console.log(rect.getBoundingClientRect())
+      })
+
+
+        
+
+
+    </script>
+</body>
+
+</html>
