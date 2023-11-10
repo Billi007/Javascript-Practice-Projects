@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote Generator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+    *{
+        margin: 0;
+        box-sizing: border-box;
+        padding: 0;
+    }
+    .container{
+        width: 100%;
+        height: 100vh;
+        background: rgb(187, 167, 201);
+    }
+    .quote-box{
+        background-color: #fff;
+        width: 650px;
+        height: 350px;
+        border-radius: 6px;
+        position: absolute;
+        top: 20%;
+        left: 30%;
+        text-align: center;
+        padding: 40px;
+    }
+    .quote-box h2{
+        font-size: 35px;
+        font-weight: 300;
+        margin-bottom: 50px;
+        position: relative;
+    }
+    .quote-box h2::after{
+        content: "";
+        width: 100px;
+        height: 3px;
+        background: rgb(58, 107, 255);
+        border-radius: 3px;
+        position: absolute;
+        bottom:-10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .quote-box blockquote{
+        font-size: 22px;
+        min-height: 110px;
+        margin-top: 35px;
+    }
+    .quote-box blockquote::before, .quote-box blockquote::after{
+        content: "";
+    }
+    .quote-box span{
+        display: block;
+        position: relative;
+        float: right;
+        font-size: 18px;
+        margin-top: 10px;
+    }
+    .quote-box span::before{
+        content: '';
+        width: 20px;
+        height: 2px;
+        background:rgb(58, 107, 255) ;
+        position: absolute;
+        top: 50%;
+        left: -30px;
+        
+    }
+    .quote-box div{
+        width: 100%;
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+    }
+    .quote-box div button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+       width: 130px;
+       height: 50px;
+       border-radius: 50px;
+       border: 1px solid rgb(82, 123, 246) ;
+       background-color: rgb(45, 142, 206);
+       color: #fff;
+      margin: 5px;
+      cursor: pointer;
+    }
+    .quote-box button:nth-child(2){
+     background-color:transparent;
+     color: black;
+    }
+    i{
+        color: rgb(45, 142, 206);
+        padding: 5px;
+       font-size: 22px;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="quote-box">
+      <h2>Qoute of The Day</h2>
+    <blockquote id="quote">Loading...</blockquote>
+    <span id="author">Loading...</span>
+    <div>
+        <button onclick="getQuoteAPI(api)">New Quote</button>
+        <button onclick="tweet()" class="second"> <i class="bi bi-twitter"></i> Tweet</button>
+    </div>
+        </div>
+    </div>
+
+
+
+    <script>
+   //Javascript
+
+  const quote = document.getElementById('quote');
+  const author = document.getElementById('author');
+
+   const api = "https://api.quotable.io/random";
+
+   async function getQuoteAPI(url){
+    const response = await fetch(url);
+    var data = await response.json();
+    console.log(data);
+    quote.innerHTML = data.content;
+    author.innerHTML = data.author;
+   }
+  getQuoteAPI(api)
+
+  function tweet(){
+    window.open('https://twitter.com/intent/tweet')
+  }
+    </script>
+</body>
+</html>
